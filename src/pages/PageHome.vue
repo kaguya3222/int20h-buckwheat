@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <span>Hello</span>
-    <router-link :to="{ name: 'about' }">Click</router-link>
-  </div>
+  <span>Hello</span>
 </template>
 
 <script>
