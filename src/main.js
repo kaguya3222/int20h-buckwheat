@@ -1,5 +1,7 @@
 import Vue from 'vue'
 
+import '@/assets/scss/globals.scss'
+
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import router from './router'
