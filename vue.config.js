@@ -4,7 +4,7 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        prependData: '@import "@/assets/scss/mixins/line-clamp.scss";'
+        prependData: '@import "@/assets/scss/mixins.scss";'
       }
     }
   }
