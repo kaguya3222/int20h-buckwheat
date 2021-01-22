@@ -2,7 +2,7 @@
   <transition name="fade" mode="out-in">
     <v-row v-if="isLoading" key="skeletons">
       <v-col v-for="n in 20" :key="n" sm="6" md="4" lg="3" cols="12">
-        <v-skeleton-loader min-width="451" type="card" />
+        <v-skeleton-loader width="451" max-width="100%" type="card" />
       </v-col>
     </v-row>
     <v-row v-else key="products">
