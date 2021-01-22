@@ -1,11 +1,6 @@
 <template>
   <v-card :href="product.href" target="_blank" hover>
-    <v-img
-      height="250"
-      contain
-      :src="product.img.src"
-      :alt="product.img.alt"
-    ></v-img>
+    <v-img height="250" contain :src="product.img" :alt="product.title" />
     <v-card-title>
       <span class="one-line">{{ product.title }}</span>
     </v-card-title>
