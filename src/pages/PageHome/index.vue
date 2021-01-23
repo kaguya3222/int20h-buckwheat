@@ -51,28 +51,19 @@ export default {
   data() {
     return {
       products: null,
+      isLoading: false,
+      selectedSorting: {},
       filters: [],
-      isLoading: false
+      selectedFilters: []
     }
   },
-  created() {
-    this.loadProducts()
-  },
-  methods: {
-    onFiltersChanged(selectedOptions) {
-      const filterParams = this.getFilterParams(selectedOptions)
-
-      this.loadProducts({
-        params: filterParams,
-        paramsSerializer: params =>
-          qs.stringify(params, { arrayFormat: 'repeat' })
-      })
+  computed: {
+    filterIds() {
+      return this.filters.map(filter => filter.id)
     },
-    getFilterParams(selectedOptions) {
-      const filterIds = this.filters.map(filter => filter.id)
-
-      return filterIds.reduce((acc, filterId) => {
-        const filterOptions = selectedOptions.filter(
+    filterParams() {
+      return this.filterIds.reduce((acc, filterId) => {
+        const filterOptions = this.selectedFilters.filter(
           option => option.filterId === filterId
         )
         return {
@@ -81,13 +72,35 @@ export default {
         }
       }, {})
     },
+    searchParams() {
+      return {
+        ...this.filterParams,
+        ...this.selectedSorting
+      }
+    }
+  },
+  created() {
+    this.loadProducts()
+  },
+  methods: {
+    onFiltersChanged(selectedOptions) {
+      this.selectedFilters = selectedOptions
+
+      this.loadProducts({ params: this.searchParams })
+    },
     onSortingChanged(sortingDetails) {
-      this.loadProducts({ params: sortingDetails })
+      this.selectedSorting = sortingDetails
+
+      this.loadProducts({ params: this.searchParams })
     },
     async loadProducts(payload) {
       try {
         this.isLoading = true
-        const { data } = await searchProducts(payload)
+        const { data } = await searchProducts({
+          ...payload,
+          paramsSerializer: params =>
+            qs.stringify(params, { arrayFormat: 'repeat' })
+        })
         this.products = data.items
         this.filters = data.filters
       } catch (e) {
