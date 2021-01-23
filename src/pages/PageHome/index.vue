@@ -28,8 +28,7 @@ import qs from 'qs'
 
 import { searchProducts } from '@/api/products'
 
-import Filters from '@/components/containers/Filters'
-
+import Filters from '@/components/common/Filters'
 import ProductCard from '@/components/common/ProductCard'
 
 export default {
