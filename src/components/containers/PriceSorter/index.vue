@@ -9,16 +9,16 @@
     hide-details
     dense
     solo
-    @change="onChange"
   />
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
+
 export default {
   name: 'PriceSorter',
   data() {
     return {
-      sortDir: '',
       items: [
         {
           name: 'Від дешевих до дорогих',
@@ -31,10 +31,26 @@ export default {
       ]
     }
   },
-  methods: {
-    onChange(sortDir) {
-      this.$emit('sortingChanged', { sortBy: 'price', sortDir })
+  computed: {
+    ...mapState('search', {
+      selectedSorting: 'selectedSorting'
+    }),
+    sortDir: {
+      get() {
+        return this.selectedSorting.sortDir
+      },
+      set(sortDir) {
+        this.updateSelectedSorting({
+          sortBy: 'price',
+          sortDir
+        })
+      }
     }
+  },
+  methods: {
+    ...mapActions({
+      updateSelectedSorting: 'search/updateSelectedSorting'
+    })
   }
 }
 </script>

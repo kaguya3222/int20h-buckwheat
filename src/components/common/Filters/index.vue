@@ -24,20 +24,24 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'Filters',
-  props: {
-    filters: {
-      type: Array,
-      required: true
-    }
-  },
   data() {
     return {
       optionIds: []
     }
   },
+  computed: {
+    ...mapState('search', {
+      filters: 'filters'
+    })
+  },
   methods: {
+    ...mapActions({
+      updateSelectedFilters: 'search/updateSelectedFilters'
+    }),
     onChange(optionIds) {
       const selectedOptions = optionIds.map(optionId => {
         const optionFilter = this.filters.find(filter =>
@@ -50,7 +54,7 @@ export default {
         }
       })
 
-      this.$emit('filtersChanged', selectedOptions)
+      this.updateSelectedFilters(selectedOptions)
     }
   }
 }
