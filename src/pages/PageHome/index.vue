@@ -1,6 +1,15 @@
 <template>
   <div>
-    <Filters :filters="filters" @filtersChanged="onFiltersChanged" />
+    <v-row no-gutters>
+      <v-col>
+        <Filters :filters="filters" @filtersChanged="onFiltersChanged" />
+      </v-col>
+      <v-col class="d-flex flex-column" md="4" lg="3" cols="12">
+        <div class="mt-auto mb-6 mb-md-4">
+          <PriceSorter @sortingChanged="onSortingChanged" />
+        </div>
+      </v-col>
+    </v-row>
     <transition name="fade" mode="out-in">
       <v-row v-if="isLoading" key="skeletons">
         <v-col v-for="n in 20" :key="n" sm="6" md="4" lg="3" cols="12">
@@ -29,12 +38,14 @@ import qs from 'qs'
 import { searchProducts } from '@/api/products'
 
 import Filters from '@/components/common/Filters'
+import PriceSorter from '@/components/common/PriceSorter'
 import ProductCard from '@/components/common/ProductCard'
 
 export default {
   name: 'PageHome',
   components: {
     Filters,
+    PriceSorter,
     ProductCard
   },
   data() {
@@ -69,6 +80,9 @@ export default {
           [filterId]: filterOptions.map(filter => filter.filterOptionId)
         }
       }, {})
+    },
+    onSortingChanged(sortingDetails) {
+      this.loadProducts({ params: sortingDetails })
     },
     async loadProducts(payload) {
       try {
