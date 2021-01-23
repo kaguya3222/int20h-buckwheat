@@ -51,13 +51,9 @@ export default {
   methods: {
     onFiltersChanged(selectedOptions) {
       const filterParams = this.getFilterParams(selectedOptions)
-      const params = {
-        ...filterParams,
-        limit: 80
-      }
 
       this.loadProducts({
-        params,
+        params: filterParams,
         paramsSerializer: params =>
           qs.stringify(params, { arrayFormat: 'repeat' })
       })
