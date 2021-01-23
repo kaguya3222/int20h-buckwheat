@@ -1,8 +1,14 @@
 <template>
-  <v-card :href="product.href" target="_blank" hover>
+  <v-card>
     <v-img height="250" contain :src="product.img" :alt="product.title" />
     <v-card-title>
-      <span class="one-line">{{ product.title }}</span>
+      <a
+        :href="product.href"
+        target="_blank"
+        rel="noreferrer noopener"
+        class="link"
+        >{{ product.title }}</a
+      >
     </v-card-title>
     <v-card-subtitle>Магазин: {{ product.store }}</v-card-subtitle>
     <v-card-text>{{ product.price }}₴</v-card-text>
@@ -22,7 +28,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.one-line {
+.link {
+  text-decoration: none;
+  color: black;
   @include line-clamp(1);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 </style>
