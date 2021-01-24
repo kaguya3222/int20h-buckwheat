@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-row no-gutters>
-      <v-col>
+      <v-col md="6" lg="5">
         <Filters />
       </v-col>
-      <v-col class="d-flex flex-column" md="4" lg="3" cols="12">
-        <div class="mt-auto mb-6 mb-md-4">
+      <v-col class="d-flex flex-column ml-auto" md="4" lg="3" cols="12">
+        <div class="mt-auto mb-4">
           <PriceSorter />
         </div>
       </v-col>
