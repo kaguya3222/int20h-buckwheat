@@ -1,7 +1,7 @@
 <template>
   <div>
     <span class="text-h5 d-inline-block mb-2">Фільтри</span>
-    <div v-for="filter in filters" :key="filter.id">
+    <div v-for="filter in filters" :key="filter.id" class="mb-4">
       <span>{{ filter.name }}:</span>
       <v-select
         v-model="optionIds"
@@ -10,7 +10,6 @@
         item-value="id"
         label="Вибрати"
         color="brown darken-2"
-        class="mb-4"
         hide-details
         multiple
         chips
