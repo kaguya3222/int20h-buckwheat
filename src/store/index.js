@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import search from './modules/search'
+import search from '@/store/modules/search'
 
 Vue.use(Vuex)
 

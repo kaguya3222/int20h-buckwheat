@@ -29,11 +29,17 @@
         </v-col>
       </v-row>
     </transition>
+    <v-pagination
+      class="mt-3"
+      :value="currentPage"
+      :length="pagesCount"
+      @input="onPageUpdate"
+    />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 import PriceSorter from '@/components/containers/PriceSorter'
 import ProductCard from '@/components/containers/ProductCard'
@@ -49,12 +55,21 @@ export default {
   },
   computed: {
     ...mapState('search', {
+      currentPage: state => state.pagination.currentPage,
       products: 'products',
       isSearchLoading: 'isLoading'
+    }),
+    ...mapGetters('search/pagination', {
+      pagesCount: 'pagesCount'
     })
   },
   created() {
     this.$store.dispatch('search/loadProducts')
+  },
+  methods: {
+    ...mapActions('search/pagination', {
+      onPageUpdate: 'updatePage'
+    })
   }
 }
 </script>
