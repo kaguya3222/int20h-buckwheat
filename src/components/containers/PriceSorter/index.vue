@@ -32,7 +32,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('search', {
+    ...mapState('search/sorting', {
       selectedSorting: 'selectedSorting'
     }),
     sortDir: {
@@ -48,8 +48,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
-      updateSelectedSorting: 'search/updateSelectedSorting'
+    ...mapActions('search/sorting', {
+      updateSelectedSorting: 'updateSelectedSorting'
     })
   }
 }

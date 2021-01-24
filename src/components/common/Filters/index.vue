@@ -34,13 +34,13 @@ export default {
     }
   },
   computed: {
-    ...mapState('search', {
+    ...mapState('search/filters', {
       filters: 'filters'
     })
   },
   methods: {
-    ...mapActions({
-      updateSelectedFilters: 'search/updateSelectedFilters'
+    ...mapActions('search/filters', {
+      updateSelectedFilters: 'updateSelectedFilters'
     }),
     onChange(optionIds) {
       const selectedOptions = optionIds.map(optionId => {
