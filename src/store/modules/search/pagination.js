@@ -3,7 +3,7 @@ const defaultLimit = 20
 export default {
   namespaced: true,
   state: () => ({
-    currentPage: 1
+    currentPage: null
   }),
   getters: {
     pagesCount: (_, __, rootState) =>

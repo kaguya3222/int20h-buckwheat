@@ -6,8 +6,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('@/pages/PageHome')
+    redirect: () => ({ name: 'products', params: { page: 1 } })
+  },
+  {
+    path: '/products/:page',
+    props: route => ({ page: Number(route.params.page) }),
+    name: 'products',
+    component: () => import('@/pages/PageProducts')
   }
 ]
 

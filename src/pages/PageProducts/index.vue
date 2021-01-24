@@ -53,6 +53,12 @@ export default {
     PriceSorter,
     ProductCard
   },
+  props: {
+    page: {
+      type: Number,
+      required: true
+    }
+  },
   computed: {
     ...mapState('search', {
       currentPage: state => state.pagination.currentPage,
@@ -63,13 +69,21 @@ export default {
       pagesCount: 'pagesCount'
     })
   },
-  created() {
-    this.$store.dispatch('search/loadProducts')
+  watch: {
+    page: {
+      handler(page) {
+        this.updatePage(page)
+      },
+      immediate: true
+    }
   },
   methods: {
     ...mapActions('search/pagination', {
-      onPageUpdate: 'updatePage'
-    })
+      updatePage: 'updatePage'
+    }),
+    onPageUpdate(page) {
+      this.$router.push({ ...this.$route, params: { page } })
+    }
   }
 }
 </script>
