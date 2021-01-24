@@ -10,7 +10,10 @@
         >{{ product.title }}</a
       >
     </v-card-title>
-    <v-card-subtitle>Магазин: {{ product.store }}</v-card-subtitle>
+    <v-card-subtitle>
+      <div>Магазин: {{ product.store }}</div>
+      <div>Ціна за 1 кг: {{ product.pricePerKg }}₴</div>
+    </v-card-subtitle>
     <v-card-text>{{ product.price }}₴</v-card-text>
   </v-card>
 </template>
