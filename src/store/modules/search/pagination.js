@@ -6,8 +6,8 @@ export default {
     currentPage: 1
   }),
   getters: {
-    totalCount: () => 23,
-    pagesCount: (_, getters) => Math.ceil(getters.totalCount / defaultLimit),
+    pagesCount: (_, __, rootState) =>
+      Math.ceil(rootState.search.totalCount / defaultLimit),
     offset: state => (state.currentPage - 1) * defaultLimit
   },
   mutations: {

@@ -9,7 +9,8 @@ export default {
   namespaced: true,
   state: () => ({
     isLoading: false,
-    products: null
+    products: null,
+    totalCount: 0
   }),
   getters: {
     searchParams: (state, getters) => ({
@@ -24,6 +25,9 @@ export default {
     },
     setProducts(state, v) {
       state.products = v
+    },
+    setTotalCount(state, v) {
+      state.totalCount = v
     }
   },
   actions: {
@@ -40,6 +44,7 @@ export default {
         })
 
         commit('setProducts', data.items)
+        commit('setTotalCount', data.totalCount)
         commit('filters/setFilters', data.filters)
       } catch (e) {
         console.log('failed doing request', e)
