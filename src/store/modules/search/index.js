@@ -31,14 +31,11 @@ export default {
     }
   },
   actions: {
-    async loadProducts({ commit, getters }, payloadParams) {
+    async loadProducts({ commit, getters }) {
       try {
         commit('setIsLoading', true)
         const { data } = await searchProducts({
-          params: {
-            ...getters.searchParams,
-            ...payloadParams
-          },
+          params: getters.searchParams,
           paramsSerializer: params =>
             qs.stringify(params, { arrayFormat: 'repeat' })
         })
