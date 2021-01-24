@@ -1,15 +1,17 @@
 <template>
-  <v-select
-    v-model="sortDir"
-    :items="items"
-    item-text="name"
-    item-value="value"
-    label="Сортувати:"
-    color="brown darken-2"
-    hide-details
-    dense
-    solo
-  />
+  <div>
+    <span>Сортувати:</span>
+    <v-select
+      v-model="sortDir"
+      :items="items"
+      item-text="name"
+      item-value="value"
+      color="brown darken-2"
+      hide-details
+      dense
+      solo
+    />
+  </div>
 </template>
 
 <script>
