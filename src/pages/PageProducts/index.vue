@@ -6,7 +6,7 @@
       </v-col>
       <v-col class="d-flex flex-column ml-auto" md="4" lg="3" cols="12">
         <div class="mt-auto mb-4">
-          <PriceSorter />
+          <Sorter />
         </div>
       </v-col>
     </v-row>
@@ -50,8 +50,8 @@
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
 
-import PriceSorter from '@/components/containers/PriceSorter'
 import ProductCard from '@/components/containers/ProductCard'
+import Sorter from '@/components/containers/Sorter'
 
 import Filters from '@/components/common/Filters'
 
@@ -59,7 +59,7 @@ export default {
   name: 'PageHome',
   components: {
     Filters,
-    PriceSorter,
+    Sorter,
     ProductCard
   },
   props: {
