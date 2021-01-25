@@ -11,7 +11,7 @@
       </v-col>
     </v-row>
     <v-row no-gutters class="fallback">
-      <div v-if="!showProducts" class="text-h5">
+      <div v-if="showFallback" class="text-h5">
         Whoops! We didn't find anything :(
       </div>
     </v-row>
@@ -77,6 +77,9 @@ export default {
     ...mapGetters('search/pagination', {
       pagesCount: 'pagesCount'
     }),
+    showFallback() {
+      return !this.showProducts && !this.isSearchLoading
+    },
     showProducts() {
       return this.products?.length
     }
