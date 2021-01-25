@@ -13,6 +13,11 @@ const routes = [
     props: route => ({ page: Number(route.params.page) }),
     name: 'products',
     component: () => import('@/pages/PageProducts')
+  },
+  {
+    path: '/charts',
+    name: 'chart',
+    component: () => import('@/pages/PageCharts')
   }
 ]
 
