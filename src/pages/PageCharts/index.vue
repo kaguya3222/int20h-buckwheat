@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="text-h4">Графік середніх цін на гречку за останні дні</h1>
+    <h1 class="text-h4">
+      Графік середніх цін на гречку за останні дні (за 1 кг)
+    </h1>
     <PriceChart v-if="!isLoading" :raw="rawPriceChart" />
   </div>
 </template>
