@@ -1,24 +1,31 @@
-# int20h-buckwheat
+# int20h-buckwheat 💥
 
-## Project setup
-```
-npm install
-```
+Vue.js application created as a test task for int20h competition in web category by KBU team.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Demo 🚀
 
-### Compiles and minifies for production
-```
-npm run build
-```
+[Heroku](https://int20h-buckwheat.herokuapp.com/)
 
-### Lints and fixes files
+> Note: it may take a while to load application for the first time because we're using free plan on Heroku.
+
+## Installation 🚚
+
+Clone this repository by running following command:
+
 ```
-npm run lint
+$ git clone https://github.com/kaguya3222/int20h-buckwheat.git
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+App requires Node.js to run. You can install it [here](https://nodejs.org/).
+
+Open terminal in project's root folder and install its dependencies using command:
+
+```
+$ npm install
+```
+
+To run application on localhost:
+
+```
+$ npm run serve
+```
