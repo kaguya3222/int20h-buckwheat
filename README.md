@@ -48,6 +48,12 @@ To run application on localhost:
 $ npm run serve
 ```
 
+Alternatively, you can run it with Docker, follow these commands:
+```
+1) docker build -t int20h-buckwheat .
+2) docker run -it -p 8080:8080 --rm --name dockerize-int20h-buckwhaet int20h-buckwheat
+```
+
 ## API repo 🏭
 
 Check it [here](https://github.com/tezzi2001/int20h-2021-test-task).
