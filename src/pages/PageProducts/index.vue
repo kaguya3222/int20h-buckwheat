@@ -50,10 +50,10 @@
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
 
-import ProductCard from '@/components/containers/ProductCard'
+import Filters from '@/components/containers/Filters'
 import Sorter from '@/components/containers/Sorter'
 
-import Filters from '@/components/common/Filters'
+import ProductCard from '@/components/common/products/ProductCard'
 
 export default {
   name: 'PageHome',
