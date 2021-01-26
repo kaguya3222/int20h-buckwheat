@@ -99,6 +99,12 @@ export default {
         }
       },
       immediate: true
+    },
+    pagesCount: {
+      handler(pagesCount) {
+        if (this.currentPage > pagesCount)
+          this.$store.commit('search/pagination/setCurrentPage', pagesCount)
+      }
     }
   },
   methods: {
