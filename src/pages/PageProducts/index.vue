@@ -87,10 +87,8 @@ export default {
   watch: {
     page: {
       async handler(page) {
-        if (!Number.isInteger(this.page)) {
-          this.$router.push({ name: 'products', params: { page: 1 } })
-          return
-        }
+        if (!Number.isInteger(this.page)) return this.$router.push({ name: 'products', params: { page: 1 } })
+
 
         try {
           await this.updatePage(page)
