@@ -1,5 +1,5 @@
 <template>
-  <span class="text-h3">Whoops! Page is not found</span>
+  <span class="text-h4">Whoops! Page is not found</span>
 </template>
 
 <script>

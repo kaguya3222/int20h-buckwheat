@@ -16,10 +16,10 @@ export default {
     }
   },
   actions: {
-    updatePage({ commit, dispatch }, v) {
+    async updatePage({ commit, dispatch }, v) {
       commit('setCurrentPage', v)
 
-      dispatch('search/loadProducts', null, { root: true })
+      await dispatch('search/loadProducts', null, { root: true })
     }
   }
 }

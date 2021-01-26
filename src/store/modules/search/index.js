@@ -43,8 +43,6 @@ export default {
         commit('setProducts', data.items)
         commit('setTotalCount', data.totalCount)
         commit('filters/setFilters', data.filters)
-      } catch (e) {
-        console.log('failed doing request', e)
       } finally {
         commit('setIsLoading', false)
       }

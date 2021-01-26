@@ -31,7 +31,7 @@ export default {
         const { data } = await getProductCharts()
         this.rawPriceChart = data?.priceChart
       } catch (e) {
-        console.log('failed doing request', e)
+        this.$error(e)
       } finally {
         this.isLoading = false
       }

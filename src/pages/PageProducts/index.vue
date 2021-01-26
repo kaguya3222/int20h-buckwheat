@@ -86,8 +86,12 @@ export default {
   },
   watch: {
     page: {
-      handler(page) {
-        this.updatePage(page)
+      async handler(page) {
+        try {
+          await this.updatePage(page)
+        } catch (e) {
+          this.$error(e)
+        }
       },
       immediate: true
     }
