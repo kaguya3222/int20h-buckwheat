@@ -18,6 +18,10 @@ const routes = [
     path: '/charts',
     name: 'chart',
     component: () => import('@/pages/PageCharts')
+  },
+  {
+    path: '*',
+    component: () => import('@/pages/PageNotFound')
   }
 ]
 
